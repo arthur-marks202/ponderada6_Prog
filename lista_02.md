@@ -41,7 +41,7 @@ console.log("O produto dos valores é:", produto);
 ```
 Qual das seguintes alternativas melhor descreve o que o código faz?
 
-A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console.
+``A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console.``
 
 B) O código avalia a expressão booleana, imprime `false`, calcula o produto dos números na lista e imprime o resultado no console.
 
@@ -107,7 +107,7 @@ A) Ambas as funções exibirão: 'Seu crédito foi aprovado. Saldo disponível: 
 
 B) analisarCredito1() exibirá: 'Seu crédito foi negado. Saldo disponível: -600.', enquanto analisarCredito2() exibirá: 'Seu crédito foi negado. Saldo disponível: -200.'
 
-C) analisarCredito1() exibirá: 'Seu crédito foi negado. Saldo disponível: -200.', enquanto analisarCredito2() exibirá: 'Seu crédito foi aprovado. Saldo disponível: 100.'
+``C) analisarCredito1() exibirá: 'Seu crédito foi negado. Saldo disponível: -200.', enquanto analisarCredito2() exibirá: 'Seu crédito foi aprovado. Saldo disponível: 100.'``
 
 D) Ambas as funções exibirão: 'Seu crédito foi aprovado Saldo disponível: 500.'
 ______
@@ -129,7 +129,7 @@ Qual das seguintes alternativas melhor descreve o comportamento do código?
 
 A) O código verifica se a idade indica um adulto ou um idoso e exibe a mensagem correspondente.
 
-B) O código verifica se a idade pertence à faixa adulta. Se for, exibe "Você é um adulto!". Caso contrário, verifica se é menor de idade e exibe "Você é menor de idade!". Se nenhuma das condições anteriores for verdadeira, exibe "Você está na melhor idade!".
+``B) O código verifica se a idade pertence à faixa adulta. Se for, exibe "Você é um adulto!". Caso contrário, verifica se é menor de idade e exibe "Você é menor de idade!". Se nenhuma das condições anteriores for verdadeira, exibe "Você está na melhor idade!".``
 
 C) O código verifica se a idade está entre 18 e 60 anos e, se for, imprime "Você é um adulto!". Se não estiver nesse intervalo, imprime "Você está na melhor idade!".
 
@@ -191,7 +191,7 @@ Dispositivo 2 ligado com bateria extra. Energia restante: 700
 Dispositivo 3 ligado. Energia restante: 400
 
 Dispositivo 4 não pode ser ligado. Energia insuficiente.
-
+```
 D)
 Dispositivo 1 ligado. Energia restante: 900
 
@@ -202,7 +202,7 @@ Dispositivo 3 ligado com bateria extra. Energia restante: 200
 Dispositivo 4 não pode ser ligado. Energia insuficiente.
 
 Dispositivo 5 não pode ser ligado. Energia insuficiente.
-
+```
 ______
 
 **5)** Qual é a principal função do método update() em um jogo desenvolvido com Phaser.js?
@@ -211,7 +211,7 @@ Escolha a opção que melhor descreve seu propósito:
 
 A) O método update() é responsável por carregar os assets do jogo antes da cena ser exibida.
 
-B) O método update() é chamado continuamente a cada quadro (frame) do jogo, sendo usado para atualizar a lógica, movimentação e interações dos objetos na cena.
+``B) O método update() é chamado continuamente a cada quadro (frame) do jogo, sendo usado para atualizar a lógica, movimentação e interações dos objetos na cena.``
 
 C) O método update() renderiza todos os sprites na tela e garante que a física do jogo seja processada corretamente.
 
@@ -222,7 +222,7 @@ ______
 
 Escolha a opção que responde corretamente:
 
-A) Simular física avançada, incluindo corpos rígidos, colisões complexas e interação entre objetos com gravidade e forças.
+``A) Simular física avançada, incluindo corpos rígidos, colisões complexas e interação entre objetos com gravidade e forças.``
 
 B) Gerenciar eventos de entrada do usuário, como cliques e toques na tela, permitindo movimentação de personagens.
 
@@ -245,6 +245,24 @@ Pedidos entre R$50,00 e R$199,99 (inclusive) → "Frete com custo adicional!"
 Pedidos de R$200,00 ou mais → "Frete grátis!"
 ```
 Implemente um pseudocódigo que receba o valor total da compra e exiba a classificação correta do frete para o cliente.
+
+```javascript
+var pedidos = [350, 44, 50, 200];
+
+function calcularFrete(pedido) {
+    switch (true) {
+        case pedido < 50:
+            return `Pedido de R$${pedido}: Frete não disponível!`;
+        case pedido >= 50 && pedido < 200:
+            return `Pedido de R$${pedido}: Frete com custo adicional!`;
+        default:
+            return `Pedido de R$${pedido}: Frete grátis!`;
+    }
+}
+
+pedidos.map(pedido => console.log(calcularFrete(pedido)));
+
+```
 ______
 
 **8)** Considere a implementação da classe base Veiculo em um sistema de modelagem de veículos. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Carro e Moto, que herdam da classe Veiculo, adicionando atributos específicos e métodos para calcular o consumo de combustível de um carro e de uma moto, respectivamente.
@@ -263,6 +281,52 @@ Método CalcularConsumo():
 Implementação genérica para cálculo de consumo, a ser sobrescrita pelas subclasses.
 Agora, implemente as classes Carro e Moto, garantindo que ambas herdem de Veiculo e possuam métodos específicos para calcular o consumo de combustível com base na quilometragem e eficiência do veículo.
 ______
+```javascript
+// Classe base Veiculo
+class Veiculo {
+    constructor(modelo, ano, eficiencia) {
+        this.modelo = modelo;
+        this.ano = ano;
+        this.eficiencia = eficiencia; // km por litro
+    }
+    
+    CalcularConsumo(distancia) {
+        return distancia / this.eficiencia;
+    }
+}
+
+// Classe Carro herda de Veiculo
+class Carro extends Veiculo {
+    constructor(modelo, ano, eficiencia) {
+        super(modelo, ano, eficiencia);
+    }
+    
+    ExibirConsumo(distancia) {
+        let consumo = this.CalcularConsumo(distancia);
+        console.log(`O carro ${this.modelo} consumiu ${consumo.toFixed(2)} litros em ${distancia} km.`);
+    }
+}
+
+// Classe Moto herda de Veiculo
+class Moto extends Veiculo {
+    constructor(modelo, ano, eficiencia) {
+        super(modelo, ano, eficiencia);
+    }
+    
+    ExibirConsumo(distancia) {
+        let consumo = this.CalcularConsumo(distancia);
+        console.log(`A moto ${this.modelo} consumiu ${consumo.toFixed(2)} litros em ${distancia} km.`);
+    }
+}
+
+// Teste
+let carro01 = new Carro("Apolo", 2024, 21);
+carro1.ExibirConsumo(240);
+
+let moto01 = new Moto("GASGAS", 2025, 16);
+moto1.ExibirConsumo(100);
+
+```
 
 **9)** Você é um cientista da NASA e está ajudando no desenvolvimento de um sistema de pouso para sondas espaciais em Marte. Seu objetivo é calcular o tempo necessário para que a sonda reduza sua velocidade até um nível seguro para pouso, considerando uma velocidade inicial de entrada na atmosfera marciana e uma taxa de desaceleração constante causada pelo atrito atmosférico e retrofoguetes.
 
@@ -275,6 +339,32 @@ Considere a fórumla de atualização velocidade:
     velocidade = velocidadeInicial - desaceleracao * tempo
 ```
 Seu programa deve determinar quanto tempo será necessário para que a sonda atinja uma velocidade segura de pouso, sem ultrapassar os limites estabelecidos.
+
+```javascript
+function calcularTempoPousoDireto(velocidadeInicial, desaceleracao, velocidadeSegura, limiteMinimo, tempoMaximo) {
+    // Calcula diretamente o tempo necessário para atingir a velocidade segura
+    let tempoNecessario = (velocidadeInicial - velocidadeSegura) / desaceleracao;
+    
+    // Verifica se o tempo calculado está dentro dos limites permitidos
+    if (tempoNecessario < 0 || tempoNecessario > tempoMaximo) {
+        console.log("Tempo máximo de descida excedido. Ajuste os parâmetros de desaceleração.");
+        return;
+    }
+    
+    // Calcula a velocidade final com o tempo necessário
+    let velocidadeFinal = velocidadeInicial - desaceleracao * tempoNecessario;
+    
+    // Verifica se a velocidade final está dentro dos limites seguros
+    if (velocidadeFinal >= limiteMinimo && velocidadeFinal <= velocidadeSegura) {
+        console.log(`Tempo necessário para atingir a velocidade segura: ${tempoNecessario.toFixed(2)} segundos.`);
+    } else {
+        console.log("Atingiu desaceleração excessiva: velocidade abaixo do limite mínimo.");
+    }
+}
+
+// Exemplo de uso
+calcularTempoPousoDireto(200, 10, 5, 4, 50);
+```
 ______
 
 **10)** Em um sistema de análise financeira, as operações de investimento de uma empresa podem ser representadas por matrizes, onde cada linha representa um tipo de investimento e cada coluna representa um período de tempo.
@@ -307,3 +397,42 @@ Escrever("Total de investimentos acumulados:")
 ImprimirMatriz(totalInvestimentos)  
 ```
 Agora, implemente a função MultiplicarMatrizesInvestimento(matrizA, matrizB), que multiplica as duas matrizes, simulando o efeito de diferentes fatores de crescimento e impacto financeiro nos investimentos ao longo do tempo.
+
+```javascript
+function multiplicarMatrizesInvestimento(matrizA, matrizB) {
+    let linhasA = matrizA.length;
+    let colunasA = matrizA[0].length;
+    let linhasB = matrizB.length;
+    let colunasB = matrizB[0].length;
+
+    if (colunasA !== linhasB) {
+        return "As matrizes não podem ser multiplicadas. Número de colunas de A deve ser igual ao número de linhas de B.";
+    }
+
+    // Criando a matriz resultado usando map()
+    let matrizResultado = Array.from({ length: linhasA }, () => Array(colunasB).fill(0));
+
+    matrizResultado = matrizResultado.map((linha, i) =>
+        linha.map((_, j) =>
+            matrizA[i].reduce((soma, valor, k) => soma + valor * matrizB[k][j], 0)
+        )
+    );
+
+    return matrizResultado;
+}
+
+// Exemplo de uso
+let investimentosAno1 = [
+    [1000, 2000],
+    [1500, 2500]
+];
+
+let investimentosAno2 = [
+    [1200, 1800],
+    [1300, 2700]
+];
+
+let resultado = multiplicarMatrizesInvestimento(investimentosAno1, investimentosAno2);
+console.log("Resultado da multiplicação das matrizes de investimento:");
+console.log(resultado);
+```
